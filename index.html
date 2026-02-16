@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение: Артем и Лиза</title>
 
-        <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
+         <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
     <meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
     <meta property="og:image" content="https://tonkorg.github.io/artem-liza-wedding/para.jpg">
     <meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
@@ -29,17 +29,39 @@
         .names-row { font-family: 'Caveat', cursive; font-size: clamp(2.2rem, 8vw, 3.2rem); color: var(--secondary); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .rings-video { width: 120px; height: auto; mix-blend-mode: multiply; }
 
-        .photo-kids { display: flex; justify-content: center; gap: 15px; padding: 20px; }
-        .photo-kids img { width: 42%; height: 250px; object-fit: cover; border: 6px solid #fff; box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        /* Фото-блоки с анимацией при наведении */
+        .photo-kids { display: flex; justify-content: center; gap: 15px; padding: 20px; perspective: 1000px; }
+        .photo-kids img { 
+            width: 42%; 
+            height: 250px; 
+            object-fit: cover; 
+            border: 6px solid #fff; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
+            transition: all 0.4s ease; 
+            cursor: pointer;
+        }
         .photo-kids img:first-child { transform: rotate(-6deg); }
         .photo-kids img:last-child { transform: rotate(4deg); }
+        .photo-kids img:hover { transform: rotate(0deg) scale(1.1); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
         .adult-photo-section { padding: 30px 20px; text-align: center; }
-        .adult-photo-section img { width: 90%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 8px solid white; }
+        .adult-photo-section img { width: 90%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 8px solid white; transition: transform 0.3s ease; }
+        .adult-photo-section img:hover { transform: scale(1.02); }
 
         .content-padding { padding: 0 30px; text-align: center; margin-bottom: 40px; }
-        .section-title { font-family: 'Caveat', cursive; font-size: 2.3rem; color: var(--primary); margin-bottom: 15px; }
+        
+        /* Центрирование Июнь 2026 и других заголовков */
+        .section-title { 
+            font-family: 'Caveat', cursive; 
+            font-size: 2.3rem; 
+            color: var(--primary); 
+            margin-bottom: 15px; 
+            text-align: center; 
+            display: block; 
+            width: 100%; 
+        }
 
+        /* Таймер с секундами */
         .countdown-container { background: var(--bg-light); padding: 30px 10px; margin: 30px 0; text-align: center; }
         #timer { display: flex; justify-content: center; gap: 8px; }
         .timer-item { background: #fff; padding: 12px; border-radius: 10px; min-width: 60px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
@@ -50,19 +72,21 @@
         .color-dots { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
         .dot { width: 35px; height: 35px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-        .btn-link { display: block; text-decoration: none; background: var(--primary); color: white; padding: 18px; border-radius: 15px; margin: 15px 20px; transition: 0.3s; }
-        .btn-link:active { transform: scale(0.98); }
+        /* Кнопки ссылок */
+        .btn-link { display: block; text-decoration: none; background: var(--primary); color: white; padding: 18px; border-radius: 15px; margin: 15px auto; width: 85%; transition: 0.3s; text-align: center; }
+        .btn-link:active { transform: scale(0.95); }
         .btn-link b { display: block; font-size: 1rem; margin-bottom: 5px; }
-        .btn-link span { font-size: 0.8rem; opacity: 0.9; line-height: 1.2; display: block; }
+        .btn-link span { font-size: 0.75rem; opacity: 0.9; line-height: 1.2; display: block; }
         .btn-music { background: var(--secondary); }
 
-        .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; text-align: center;  }
+        /* Календарь */
+        .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; text-align: center; }
         .calendar { display: grid; grid-template-columns: repeat(7, 1fr); max-width: 320px; margin: 0 auto; text-align: center; }
         .calendar-day { height: 45px; display: flex; align-items: center; justify-content: center; }
         .weekday { font-weight: 700; color: #bc6c25; }
         .marked { border: 2px solid #bc6c25; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #fff; font-weight: bold; }
 
-        @media (max-width: 480px) { .photo-kids img { height: 180px; } .timer-item { min-width: 55px; padding: 8px; } }
+        @media (max-width: 480px) { .photo-kids img { height: 180px; } .timer-item { min-width: 50px; padding: 8px; } }
     </style>
 </head>
 <body>
@@ -71,8 +95,8 @@
     <header>
         <div class="names-row">
             Артем + Лиза = 
-            <video class="rings-video" autoplay loop muted playsinline poster="ring.jpeg">
-                <source src="rings.mp4" type="video/mp4">
+            <video class="rings-video" autoplay loop muted playsinline poster="ring.jpg">
+                <source src="rings.MP4" type="video/mp4">
             </video>
         </div>
     </header>
@@ -88,7 +112,7 @@
     </div>
 
     <div class="adult-photo-section">
-        <img src="we_adult.jpg" alt="Артем и Лиза сейчас">
+        <img src="we_adult.jpg" alt="Мы сейчас">
         <p style="font-style: italic; margin-top: 15px; color: #888;">А это мы уже сегодня :)</p>
     </div>
 
@@ -116,7 +140,7 @@
 
     <div class="info-card">
         <h3 class="section-title">Дресс-код</h3>
-        <p>Мы будем очень признательны, если вы поддержите <b>летнюю цветовую гамму в пастельных тонах</b>. Это касается ЗАГСа, фотосессии и первой части праздника.</p>
+        <p>Для ЗАГСа, фотосессии и первой части вечера мы выбрали <b>летнюю цветовую гамму в пастельных тонах</b>. Будем рады видеть вас в светлых и нежных образах!</p>
         <div class="color-dots">
             <div class="dot" style="background: #f3e5f5;"></div>
             <div class="dot" style="background: #e1f5fe;"></div>
@@ -128,25 +152,24 @@
 
     <div class="content-padding">
         <h3 class="section-title">Про цветы</h3>
-        <p>Пожалуйста, не дарите нам пышные букеты. Если хотите — подарите просто <b>по одному цветку</b>, это будет очень трогательно.</p>
+        <p>Ваше присутствие важнее всего! Пожалуйста, не дарите нам огромные охапки цветов. Если хотите порадовать — подарите <b>один ваш любимый цветок</b>.</p>
     </div>
 
     <div class="links-section">
-        <!-- ЗАМЕНИ ССЫЛКИ НИЖЕ НА РЕАЛЬНЫЕ -->
         <a href="https://t.me" target="_blank" class="btn-link">
             <b>ХОЧУ НАВЕСТИ ШУМИХУ!</b>
-            <span>Если вы хотите не только быть гостем, но и поиздеваться над остальными — переходите сюда!</span>
+            <span>Если вы хотите побыть на свадьбе не только как гость, но и поиздеваться над всеми в конкурсах — заходите сюда!</span>
         </a>
 
         <a href="https://t.me" target="_blank" class="btn-link btn-music">
             <b>МУЗЫКАЛЬНЫЙ ПЛЕЙЛИСТ</b>
-            <span>Кидайте сюда треки, под которые вы точно пойдете танцевать!</span>
+            <span>Сюда кидайте треки, под которые вы точно не сможете усидеть на месте.</span>
         </a>
     </div>
 
-    <div class="content-padding">
-        <h3 class="section-title" style="font-size: 1.8rem;">Где будет праздник</h3>
-        <p>Ресторан <b>"Мечта"</b><br>ул. Счастья, д. 1</p>
+    <div class="info-card">
+        <h3 class="section-title">Где будет праздник</h3>
+        <p>г. Уфа <b>"Чесноковка"</b><br>ул. Счастья, д. 1</p>
     </div>
 </div>
 
