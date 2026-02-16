@@ -5,22 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение: Артем и Лиза</title>
 
-  <!-- ВОТ ЭТОТ БЛОК ВСТАВЛЯЕМ СЮДА -->
-    <!-- Замените 'ВАШ_ЛОГИН' на ваш ник на Гитхабе -->
+    <!-- Метатеги для превью (Open Graph) -->
     <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
     <meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
     <meta property="og:image" content="https://tonkorg.github.io/artem-liza-wedding/para.jpg">
     <meta property="og:type" content="website">
-<meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
-    <!-- КОНЕЦ БЛОКА ДЛЯ ПРЕВЬЮ -->
+    <meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
     
-    <!-- Правильное подключение шрифтов -->
+    <!-- ИСПРАВЛЕНО: Полная ссылка на шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
-        /* Общие настройки */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -38,7 +35,6 @@
             min-height: 100vh;
         }
 
-        /* Шапка с именами и видео */
         header {
             padding: 60px 20px 40px;
             text-align: center;
@@ -46,7 +42,7 @@
 
         .names-row {
             font-family: 'Caveat', cursive;
-            font-size: clamp(2.5rem, 8vw, 3.5rem); /* Адаптивный размер шрифта */
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             color: #d4a373;
             display: flex;
             align-items: center;
@@ -56,13 +52,12 @@
         }
 
         .rings-video {
-            width: 200px;
+            width: 150px;
             height: auto;
             vertical-align: middle;
-            mix-blend-mode: multiply; /* Убирает белый фон у видео */
+            mix-blend-mode: multiply;
         }
 
-        /* Блок с наклонными фото */
         .photo-section {
             display: flex;
             justify-content: center;
@@ -92,10 +87,8 @@
         .photo-section img:hover {
             transform: rotate(0deg) scale(1.1);
             z-index: 10;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        /* Текст про карапузов */
         .pre-calendar-text {
             padding: 0 40px;
             text-align: center;
@@ -114,10 +107,8 @@
             font-weight: 300;
             color: #777;
             line-height: 1.6;
-            margin: 0;
         }
 
-        /* Идеально ровный календарь */
         .calendar-container {
             background-color: #fefae0;
             padding: 40px 0;
@@ -127,7 +118,7 @@
         .calendar-title {
             text-align: center;
             font-family: 'Caveat', cursive;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
             color: #bc6c25;
         }
@@ -145,14 +136,12 @@
             align-items: center;
             justify-content: center;
             font-size: 1rem;
-            position: relative;
         }
 
         .weekday { 
             font-weight: 700; 
             color: #bc6c25;
             font-size: 0.9rem;
-            text-transform: uppercase;
         }
         
         .marked {
@@ -165,70 +154,44 @@
             justify-content: center;
             background: #fff;
             font-weight: bold;
-            box-sizing: border-box;
-            z-index: 1;
         }
 
-        /* Информационные блоки */
         .info-block {
             padding: 40px 20px;
             text-align: center;
             border-bottom: 1px solid #fefae0;
         }
 
-        .info-block:last-child { border-bottom: none; }
-
-        .info-block h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: #bc6c25;
-            margin-bottom: 10px;
-        }
-
-        /* Адаптивность для мобильных */
         @media (max-width: 480px) {
-            .photo-section {
-                flex-direction: column;
-                align-items: center;
-                gap: 30px;
-            }
-            .photo-section img {
-                width: 80%;
-                height: 320px;
-            }
-            .photo-section img:first-child { transform: rotate(-3deg); }
-            .photo-section img:last-child { transform: rotate(3deg); }
-            .rings-video { width: 110px; }
+            .photo-section { flex-direction: column; align-items: center; }
+            .photo-section img { width: 85%; height: 300px; }
+            .rings-video { width: 120px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Шапка -->
     <header>
         <div class="names-row">
             Артем + Лиза = 
             <video class="rings-video" autoplay loop muted playsinline>
-                <source src="rings.MP4" type="video/mp4">
+                <source src="rings.mp4" type="video/mp4">
                 <img src="ring.jpeg" class="rings-icon" alt="Кольца">
             </video>
         </div>
     </header>
 
-    <!-- Фотографии -->
     <div class="photo-section">
         <img src="artemka.jpg" alt="Артем маленький">
         <img src="lizka.jpg" alt="Лиза маленькая">
     </div>
 
-    <!-- Текст -->
     <div class="pre-calendar-text">
         <h2>Узнали этих карапузов?</h2>
         <p>Невероятно, как быстро летит время... Кажется, еще вчера мы строили замки в песочнице, а сегодня пришла пора создавать нашу собственную семью!</p>
     </div>
 
-    <!-- Календарь Июнь 2026 -->
     <div class="calendar-container">
         <div class="calendar-title">Июнь 2026</div>
         <div class="calendar">
@@ -240,37 +203,25 @@
             <div class="calendar-day weekday">Сб</div>
             <div class="calendar-day weekday">Вс</div>
 
-            <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div>
-            <div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div>
-            
-            <div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div>
-            <div class="calendar-day">11</div><div class="calendar-day">12</div>
-            <div class="calendar-day"><div class="marked">13</div></div> 
-            <div class="calendar-day">14</div>
-            
-            <div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div>
-            <div class="calendar-day">18</div><div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div>
-            
-            <div class="calendar-day">22</div><div class="calendar-day">23</div><div class="calendar-day">24</div>
-            <div class="calendar-day">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
-            
+            <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div>
+            <div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div><div class="calendar-day">12</div><div class="calendar-day"><div class="marked">13</div></div><div class="calendar-day">14</div>
+            <div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div><div class="calendar-day">18</div><div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div>
+            <div class="calendar-day">22</div><div class="calendar-day">23</div><div class="calendar-day">24</div><div class="calendar-day">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
             <div class="calendar-day">29</div><div class="calendar-day">30</div>
             <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
         </div>
     </div>
 
-    <!-- Информация -->
     <div class="info-block">
         <h3>Где будет праздник</h3>
-        <p>ДАЧА В ЧЕСНОКОВКЕ</p>
+        <p>Ресторан "Мечта", ул. Счастья, д. 1</p>
     </div>
 
     <div class="info-block">
         <h3>Дресс-код</h3>
-        <p>Главное не голые уже хорошо</p>
+        <p>Будем признательны за наряды в пастельных тонах</p>
     </div>
 </div>
 
 </body>
 </html>
-
