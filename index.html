@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение: Артем и Лиза</title>
 
-    <!-- Настройки для красивого превью в мессенджерах -->
+    <!-- Метатеги для превью в Telegram/WhatsApp -->
     <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
     <meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
     <meta property="og:image" content="https://tonkorg.github.io">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonkorg.github.io">
     
-    <!-- Подключение шрифтов -->
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
@@ -24,7 +24,7 @@
         header { padding: 60px 20px 40px; text-align: center; }
         .names-row { font-family: 'Caveat', cursive; font-size: clamp(2.5rem, 8vw, 3.5rem); color: #d4a373; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
         
-        /* Видео теперь подхватит rings.MP4 */
+        /* Видео c учетом регистра .MP4 */
         .rings-video { width: 150px; height: auto; vertical-align: middle; mix-blend-mode: multiply; }
 
         .photo-section { display: flex; justify-content: center; gap: 20px; padding: 20px 15px 50px; perspective: 1000px; }
@@ -36,13 +36,13 @@
         .pre-calendar-text h2 { font-family: 'Caveat', cursive; font-size: 2.5rem; color: #bc6c25; margin: 0 0 15px 0; }
         .pre-calendar-text p { font-style: italic; font-weight: 300; color: #777; line-height: 1.6; margin: 0; }
 
-        /* Стили Таймера */
+        /* Таймер с секундами */
         .countdown-container { padding: 20px; text-align: center; margin-bottom: 30px; }
         .countdown-title { font-family: 'Caveat', cursive; font-size: 1.8rem; color: #bc6c25; margin-bottom: 15px; }
-        #timer { display: flex; justify-content: center; gap: 15px; }
-        .timer-item { background: #fefae0; padding: 10px; border-radius: 8px; min-width: 60px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .timer-item span { display: block; font-size: 1.5rem; font-weight: bold; color: #bc6c25; }
-        .timer-label { font-size: 0.7rem; text-transform: uppercase; color: #888; }
+        #timer { display: flex; justify-content: center; gap: 8px; }
+        .timer-item { background: #fefae0; padding: 10px 5px; border-radius: 8px; min-width: 65px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .timer-item span { display: block; font-size: 1.3rem; font-weight: bold; color: #bc6c25; }
+        .timer-label { font-size: 0.65rem; text-transform: uppercase; color: #888; }
 
         .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; }
         .calendar-title { text-align: center; font-family: 'Caveat', cursive; font-size: 2.2rem; margin-bottom: 20px; color: #bc6c25; }
@@ -52,6 +52,7 @@
         .marked { border: 2px solid #bc6c25; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #fff; font-weight: bold; }
 
         .info-block { padding: 40px 20px; text-align: center; border-bottom: 1px solid #fefae0; }
+        
         @media (max-width: 480px) { 
             .photo-section { flex-direction: column; align-items: center; } 
             .photo-section img { width: 85%; height: 300px; } 
@@ -65,7 +66,6 @@
     <header>
         <div class="names-row">
             Артем + Лиза = 
-            <!-- ИСПРАВЛЕНО: Теперь rings.MP4 и ring.jpg -->
             <video class="rings-video" autoplay loop muted playsinline poster="ring.jpg">
                 <source src="rings.MP4" type="video/mp4">
             </video>
@@ -82,13 +82,13 @@
         <p>Невероятно, как быстро летит время... Кажется, еще вчера мы строили замки в песочнице, а сегодня пришла пора создавать нашу собственную семью!</p>
     </div>
 
-    <!-- БЛОК С ОБРАТНЫМ ОТСЧЕТОМ -->
     <div class="countdown-container">
         <div class="countdown-title">До торжества осталось:</div>
         <div id="timer">
             <div class="timer-item"><span id="days">00</span><div class="timer-label">дней</div></div>
             <div class="timer-item"><span id="hours">00</span><div class="timer-label">часов</div></div>
             <div class="timer-item"><span id="minutes">00</span><div class="timer-label">мин</div></div>
+            <div class="timer-item"><span id="seconds">00</span><div class="timer-label">сек</div></div>
         </div>
     </div>
 
@@ -116,16 +116,30 @@
 </div>
 
 <script>
-    // Скрипт обратного отсчета
     const weddingDate = new Date("June 13, 2026 16:00:00").getTime();
-    setInterval(function() {
+    
+    function updateTimer() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
-        if (distance < 0) return;
-        document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    }, 1000);
+
+        if (distance < 0) {
+            document.querySelector(".countdown-container").innerHTML = "<div class='countdown-title'>Этот счастливый день настал!</div>";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
 </script>
 
 </body>
