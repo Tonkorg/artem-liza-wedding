@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение: Артем и Лиза</title>
 
-    <!-- Метатеги для превью в Telegram/WhatsApp -->
-    <!-- Основные настройки Open Graph -->
-<meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
-<meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
-<meta property="og:image" content="https://tonkorg.github.io/artem-liza-wedding/para.jpg">
-<meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
-<meta property="og:type" content="website">
+    <!-- Метатеги для превью в мессенджерах -->
+    <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
+    <meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
+    <meta property="og:image" content="https://tonkorg.github.io/artem-liza-wedding/para.jpg">
+    <meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
 
-<!-- Дополнительно для Twitter (X) -->
-<meta name="twitter:card" content="summary_large_image">
-
-    
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,10 +25,10 @@
         header { padding: 60px 20px 40px; text-align: center; }
         .names-row { font-family: 'Caveat', cursive; font-size: clamp(2.5rem, 8vw, 3.5rem); color: #d4a373; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
         
-        /* Видео c учетом регистра .MP4 */
         .rings-video { width: 150px; height: auto; vertical-align: middle; mix-blend-mode: multiply; }
 
-        .photo-section { display: flex; justify-content: center; gap: 20px; padding: 20px 15px 50px; perspective: 1000px; }
+        /* Блок с фото - всегда в ряд */
+        .photo-section { display: flex; justify-content: center; gap: 20px; padding: 20px 15px 50px; perspective: 1000px; flex-direction: row; }
         .photo-section img { width: 42%; height: 280px; object-fit: cover; border: 8px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: all 0.4s ease; }
         .photo-section img:first-child { transform: rotate(-7deg) translateY(10px); }
         .photo-section img:last-child { transform: rotate(5deg); }
@@ -41,7 +37,7 @@
         .pre-calendar-text h2 { font-family: 'Caveat', cursive; font-size: 2.5rem; color: #bc6c25; margin: 0 0 15px 0; }
         .pre-calendar-text p { font-style: italic; font-weight: 300; color: #777; line-height: 1.6; margin: 0; }
 
-        /* Таймер с секундами */
+        /* Таймер */
         .countdown-container { padding: 20px; text-align: center; margin-bottom: 30px; }
         .countdown-title { font-family: 'Caveat', cursive; font-size: 1.8rem; color: #bc6c25; margin-bottom: 15px; }
         #timer { display: flex; justify-content: center; gap: 8px; }
@@ -49,6 +45,7 @@
         .timer-item span { display: block; font-size: 1.3rem; font-weight: bold; color: #bc6c25; }
         .timer-label { font-size: 0.65rem; text-transform: uppercase; color: #888; }
 
+        /* Календарь */
         .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; }
         .calendar-title { text-align: center; font-family: 'Caveat', cursive; font-size: 2.2rem; margin-bottom: 20px; color: #bc6c25; }
         .calendar { display: grid; grid-template-columns: repeat(7, 1fr); max-width: 320px; margin: 0 auto; }
@@ -58,10 +55,12 @@
 
         .info-block { padding: 40px 20px; text-align: center; border-bottom: 1px solid #fefae0; }
         
+        /* Адаптивность для телефонов */
         @media (max-width: 480px) { 
-            .photo-section { flex-direction: column; align-items: center; } 
-            .photo-section img { width: 85%; height: 300px; } 
-            .rings-video { width: 120px; } 
+            .photo-section { gap: 10px; padding: 20px 10px; }
+            .photo-section img { width: 46%; height: 200px; border-width: 4px; } 
+            .rings-video { width: 100px; } 
+            .names-row { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -111,12 +110,12 @@
 
     <div class="info-block">
         <h3>Где будет праздник</h3>
-        <p>г. Уфа, пос. Чесноковка, ул.Пушкина, д. Колотушкина</p>
+        <p>г. Уфа, пос. Чесноковка, ул. Пушкина, д. Колотушкина</p>
     </div>
 
     <div class="info-block">
         <h3>Дресс-код</h3>
-        <p>Будем признательны если придете в одежде))</p>
+        <p>Будем признательны, если вы придете в одежде 😊</p>
     </div>
 </div>
 
@@ -149,6 +148,3 @@
 
 </body>
 </html>
-
-
-
