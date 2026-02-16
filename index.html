@@ -5,63 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение: Артем и Лиза</title>
 
-    <!-- Метатеги для превью в мессенджерах -->
-    <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
+        <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
     <meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
     <meta property="og:image" content="https://tonkorg.github.io/artem-liza-wedding/para.jpg">
     <meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Шрифты -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background-color: #fdfaf6; color: #4a4a4a; overflow-x: hidden; }
-        .container { max-width: 600px; margin: 0 auto; background: #ffffff; box-shadow: 0 0 30px rgba(0,0,0,0.05); min-height: 100vh; padding-bottom: 40px; }
+        :root {
+            --primary: #bc6c25;
+            --secondary: #d4a373;
+            --bg-light: #fefae0;
+            --text: #4a4a4a;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background-color: #fdfaf6; color: var(--text); overflow-x: hidden; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; box-shadow: 0 0 30px rgba(0,0,0,0.05); min-height: 100vh; padding-bottom: 60px; }
         
-        header { padding: 60px 20px 40px; text-align: center; }
-        .names-row { font-family: 'Caveat', cursive; font-size: clamp(2.5rem, 8vw, 3.5rem); color: #d4a373; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        
-        .rings-video { width: 150px; height: auto; vertical-align: middle; mix-blend-mode: multiply; }
+        header { padding: 50px 20px 30px; text-align: center; }
+        .names-row { font-family: 'Caveat', cursive; font-size: clamp(2.2rem, 8vw, 3.2rem); color: var(--secondary); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .rings-video { width: 120px; height: auto; mix-blend-mode: multiply; }
 
-        /* Блок с фото - всегда в ряд */
-        .photo-section { display: flex; justify-content: center; gap: 20px; padding: 20px 15px 50px; perspective: 1000px; flex-direction: row; }
-        .photo-section img { width: 42%; height: 280px; object-fit: cover; border: 8px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: all 0.4s ease; }
-        .photo-section img:first-child { transform: rotate(-7deg) translateY(10px); }
-        .photo-section img:last-child { transform: rotate(5deg); }
+        .photo-kids { display: flex; justify-content: center; gap: 15px; padding: 20px; }
+        .photo-kids img { width: 42%; height: 250px; object-fit: cover; border: 6px solid #fff; box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .photo-kids img:first-child { transform: rotate(-6deg); }
+        .photo-kids img:last-child { transform: rotate(4deg); }
 
-        .pre-calendar-text { padding: 0 40px; text-align: center; margin-bottom: 40px; }
-        .pre-calendar-text h2 { font-family: 'Caveat', cursive; font-size: 2.5rem; color: #bc6c25; margin: 0 0 15px 0; }
-        .pre-calendar-text p { font-style: italic; font-weight: 300; color: #777; line-height: 1.6; margin: 0; }
+        .adult-photo-section { padding: 30px 20px; text-align: center; }
+        .adult-photo-section img { width: 90%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 8px solid white; }
 
-        /* Таймер */
-        .countdown-container { padding: 20px; text-align: center; margin-bottom: 30px; }
-        .countdown-title { font-family: 'Caveat', cursive; font-size: 1.8rem; color: #bc6c25; margin-bottom: 15px; }
+        .content-padding { padding: 0 30px; text-align: center; margin-bottom: 40px; }
+        .section-title { font-family: 'Caveat', cursive; font-size: 2.3rem; color: var(--primary); margin-bottom: 15px; }
+
+        .countdown-container { background: var(--bg-light); padding: 30px 10px; margin: 30px 0; text-align: center; }
         #timer { display: flex; justify-content: center; gap: 8px; }
-        .timer-item { background: #fefae0; padding: 10px 5px; border-radius: 8px; min-width: 65px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .timer-item span { display: block; font-size: 1.3rem; font-weight: bold; color: #bc6c25; }
-        .timer-label { font-size: 0.65rem; text-transform: uppercase; color: #888; }
+        .timer-item { background: #fff; padding: 12px; border-radius: 10px; min-width: 60px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
+        .timer-item span { display: block; font-size: 1.4rem; font-weight: bold; color: var(--primary); }
+        .timer-label { font-size: 0.6rem; text-transform: uppercase; color: #888; margin-top: 4px; }
 
-        /* Календарь */
-        .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; }
-        .calendar-title { text-align: center; font-family: 'Caveat', cursive; font-size: 2.2rem; margin-bottom: 20px; color: #bc6c25; }
-        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); max-width: 320px; margin: 0 auto; }
+        .info-card { border: 2px solid var(--bg-light); margin: 20px; padding: 25px; border-radius: 20px; text-align: center; }
+        .color-dots { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+        .dot { width: 35px; height: 35px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        .btn-link { display: block; text-decoration: none; background: var(--primary); color: white; padding: 18px; border-radius: 15px; margin: 15px 20px; transition: 0.3s; }
+        .btn-link:active { transform: scale(0.98); }
+        .btn-link b { display: block; font-size: 1rem; margin-bottom: 5px; }
+        .btn-link span { font-size: 0.8rem; opacity: 0.9; line-height: 1.2; display: block; }
+        .btn-music { background: var(--secondary); }
+
+        .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; text-align: center;  }
+        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); max-width: 320px; margin: 0 auto; text-align: center; }
         .calendar-day { height: 45px; display: flex; align-items: center; justify-content: center; }
         .weekday { font-weight: 700; color: #bc6c25; }
         .marked { border: 2px solid #bc6c25; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #fff; font-weight: bold; }
 
-        .info-block { padding: 40px 20px; text-align: center; border-bottom: 1px solid #fefae0; }
-        
-        /* Адаптивность для телефонов */
-        @media (max-width: 480px) { 
-            .photo-section { gap: 10px; padding: 20px 10px; }
-            .photo-section img { width: 46%; height: 200px; border-width: 4px; } 
-            .rings-video { width: 100px; } 
-            .names-row { font-size: 2.2rem; }
-        }
+        @media (max-width: 480px) { .photo-kids img { height: 180px; } .timer-item { min-width: 55px; padding: 8px; } }
     </style>
 </head>
 <body>
@@ -70,24 +71,29 @@
     <header>
         <div class="names-row">
             Артем + Лиза = 
-            <video class="rings-video" autoplay loop muted playsinline poster="ring.jpg">
-                <source src="rings.MP4" type="video/mp4">
+            <video class="rings-video" autoplay loop muted playsinline poster="ring.jpeg">
+                <source src="rings.mp4" type="video/mp4">
             </video>
         </div>
     </header>
 
-    <div class="photo-section">
-        <img src="artemka.jpg" alt="Артем">
-        <img src="lizka.jpg" alt="Лиза">
+    <div class="photo-kids">
+        <img src="artemka.jpg" alt="Артем маленький">
+        <img src="lizka.jpg" alt="Лиза маленькая">
     </div>
 
-    <div class="pre-calendar-text">
-        <h2>Узнали этих карапузов?</h2>
+    <div class="content-padding">
+        <h2 class="section-title">Узнали этих карапузов?</h2>
         <p>Невероятно, как быстро летит время... Кажется, еще вчера мы строили замки в песочнице, а сегодня пришла пора создавать нашу собственную семью!</p>
     </div>
 
+    <div class="adult-photo-section">
+        <img src="we_adult.jpg" alt="Артем и Лиза сейчас">
+        <p style="font-style: italic; margin-top: 15px; color: #888;">А это мы уже сегодня :)</p>
+    </div>
+
     <div class="countdown-container">
-        <div class="countdown-title">До торжества осталось:</div>
+        <div class="section-title" style="font-size: 1.8rem;">До торжества осталось:</div>
         <div id="timer">
             <div class="timer-item"><span id="days">00</span><div class="timer-label">дней</div></div>
             <div class="timer-item"><span id="hours">00</span><div class="timer-label">часов</div></div>
@@ -97,7 +103,7 @@
     </div>
 
     <div class="calendar-container">
-        <div class="calendar-title">Июнь 2026</div>
+        <div class="section-title">Июнь 2026</div>
         <div class="calendar">
             <div class="calendar-day weekday">Пн</div><div class="calendar-day weekday">Вт</div><div class="calendar-day weekday">Ср</div><div class="calendar-day weekday">Чт</div><div class="calendar-day weekday">Пт</div><div class="calendar-day weekday">Сб</div><div class="calendar-day weekday">Вс</div>
             <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div>
@@ -108,14 +114,39 @@
         </div>
     </div>
 
-    <div class="info-block">
-        <h3>Где будет праздник</h3>
-        <p>г. Уфа, пос. Чесноковка, ул. Пушкина, д. Колотушкина</p>
+    <div class="info-card">
+        <h3 class="section-title">Дресс-код</h3>
+        <p>Мы будем очень признательны, если вы поддержите <b>летнюю цветовую гамму в пастельных тонах</b>. Это касается ЗАГСа, фотосессии и первой части праздника.</p>
+        <div class="color-dots">
+            <div class="dot" style="background: #f3e5f5;"></div>
+            <div class="dot" style="background: #e1f5fe;"></div>
+            <div class="dot" style="background: #f1f8e9;"></div>
+            <div class="dot" style="background: #fff9c4;"></div>
+            <div class="dot" style="background: #ffe0b2;"></div>
+        </div>
     </div>
 
-    <div class="info-block">
-        <h3>Дресс-код</h3>
-        <p>Будем признательны, если вы придете в одежде 😊</p>
+    <div class="content-padding">
+        <h3 class="section-title">Про цветы</h3>
+        <p>Пожалуйста, не дарите нам пышные букеты. Если хотите — подарите просто <b>по одному цветку</b>, это будет очень трогательно.</p>
+    </div>
+
+    <div class="links-section">
+        <!-- ЗАМЕНИ ССЫЛКИ НИЖЕ НА РЕАЛЬНЫЕ -->
+        <a href="https://t.me" target="_blank" class="btn-link">
+            <b>ХОЧУ НАВЕСТИ ШУМИХУ!</b>
+            <span>Если вы хотите не только быть гостем, но и поиздеваться над остальными — переходите сюда!</span>
+        </a>
+
+        <a href="https://t.me" target="_blank" class="btn-link btn-music">
+            <b>МУЗЫКАЛЬНЫЙ ПЛЕЙЛИСТ</b>
+            <span>Кидайте сюда треки, под которые вы точно пойдете танцевать!</span>
+        </a>
+    </div>
+
+    <div class="content-padding">
+        <h3 class="section-title" style="font-size: 1.8rem;">Где будет праздник</h3>
+        <p>Ресторан <b>"Мечта"</b><br>ул. Счастья, д. 1</p>
     </div>
 </div>
 
@@ -127,23 +158,18 @@
         const distance = weddingDate - now;
 
         if (distance < 0) {
-            document.querySelector(".countdown-container").innerHTML = "<div class='countdown-title'>Этот счастливый день настал!</div>";
+            document.getElementById("timer").innerHTML = "<h3>МЫ УЖЕ ЖЕНАТЫ! 🥂</h3>";
             return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = days;
-        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
     }
 
-    updateTimer();
     setInterval(updateTimer, 1000);
+    updateTimer();
 </script>
 
 </body>
