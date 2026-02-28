@@ -3,70 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение: Артем и Лиза</title>
+    <title>Приглашение: Тёмы и Лизы</title>
 
-            <meta property="og:title" content="Приглашение на свадьбу Артема и Лизы 💍">
+    <meta property="og:title" content="Приглашение на свадьбу Тёмы и Лизы 💍">
     <meta property="og:description" content="Ждем вас 13 июня 2026 года! 😊">
     <meta property="og:image" content="https://tonkorg.github.io/artem-liza-wedding/para.jpg">
     <meta property="og:url" content="https://tonkorg.github.io/artem-liza-wedding/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    
+
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --primary: #bc6c25;
-            --secondary: #d4a373;
-            --bg-light: #fefae0;
-            --text: #4a4a4a;
+            --primary: #c2a878; /* Теплый золотистый песок (для кнопок и заголовков) */
+            --secondary: #93827f; /* Благородный тауп (для имен в шапке) */
+            --bg-light: #f5f1e9; /* Цвет пергамента или светлого песка для карточек */
+            --text: #5e5449; /* Глубокий кофейный (мягче, чем черный) */
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background-color: #fdfaf6; color: var(--text); overflow-x: hidden; }
-        .container { max-width: 600px; margin: 0 auto; background: #ffffff; box-shadow: 0 0 30px rgba(0,0,0,0.05); min-height: 100vh; padding-bottom: 60px; }
-        
-        header { padding: 50px 20px 30px; text-align: center; }
-        .names-row { font-family: 'Caveat', cursive; font-size: clamp(2.2rem, 8vw, 3.2rem); color: var(--secondary); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .rings-video { width: 220px; height: auto; mix-blend-mode: multiply; }
-
-        .photo-kids { display: flex; justify-content: center; gap: 15px; padding: 20px; perspective: 1000px; }
-        .photo-kids img { 
-            width: 42%; height: 250px; object-fit: cover; border: 6px solid #fff; 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfaf6;
+            color: var(--text);
+            overflow-x: hidden;
         }
-        .photo-kids img:first-child { transform: rotate(-6deg); }
-        .photo-kids img:last-child { transform: rotate(4deg); }
-        .photo-kids img:hover { transform: rotate(0deg) scale(1.1); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-        .adult-photo-section { padding: 30px 20px; text-align: center; }
-        .adult-photo-section img { width: 90%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 8px solid white; transition: transform 0.3s ease; }
-        .adult-photo-section img:hover { transform: scale(1.02); }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
 
-        .content-padding { padding: 0 30px; text-align: center; margin-bottom: 40px; }
-        .section-title { font-family: 'Caveat', cursive; font-size: 2.3rem; color: var(--primary); margin-bottom: 15px; text-align: center; display: block; width: 100%; }
+        header {
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
 
-        .countdown-container { background: var(--bg-light); padding: 30px 10px; margin: 30px 0; text-align: center; }
-        #timer { display: flex; justify-content: center; gap: 8px; }
-        .timer-item { background: #fff; padding: 12px; border-radius: 10px; min-width: 60px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
-        .timer-item span { display: block; font-size: 1.4rem; font-weight: bold; color: var(--primary); }
-        .timer-label { font-size: 0.6rem; text-transform: uppercase; color: #888; margin-top: 4px; }
+        .names-row {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2.2rem, 8vw, 3.2rem);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-        .info-card { border: 2px solid var(--bg-light); margin: 20px; padding: 25px; border-radius: 20px; text-align: center; }
-        .color-dots { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
-        .dot { width: 35px; height: 35px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .rings-video {
+            width: 120px;
+            height: auto;
+            mix-blend-mode: multiply;
+        }
 
-        .btn-link { display: block; text-decoration: none; background: var(--primary); color: white; padding: 18px; border-radius: 15px; margin: 15px auto; width: 85%; transition: 0.3s; text-align: center; }
-        .btn-link:active { transform: scale(0.95); }
-        .btn-link b { display: block; font-size: 1rem; margin-bottom: 5px; }
-        .btn-link span { font-size: 0.75rem; opacity: 0.9; line-height: 1.2; display: block; }
-        .btn-music { background: var(--secondary); }
+        .photo-kids {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            perspective: 1000px;
+        }
 
-        .calendar-container { background-color: #fefae0; padding: 40px 0; margin-bottom: 20px; text-align: center; }
-        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); max-width: 320px; margin: 0 auto; text-align: center; }
-        .calendar-day { height: 45px; display: flex; align-items: center; justify-content: center; }
-        .weekday { font-weight: 700; color: #bc6c25; }
-        .marked { border: 2px solid #bc6c25; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #fff; font-weight: bold; }
+        .photo-kids img {
+            width: 42%;
+            height: 250px;
+            object-fit: cover;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
 
-        @media (max-width: 480px) { .photo-kids img { height: 180px; } .timer-item { min-width: 50px; padding: 8px; } }
+        .photo-kids img:first-child {
+            transform: rotate(-6deg);
+        }
+
+        .photo-kids img:last-child {
+            transform: rotate(4deg);
+        }
+
+        .photo-kids img:hover {
+            transform: rotate(0deg) scale(1.1);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .adult-photo-section {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .adult-photo-section img {
+            width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 8px solid white;
+            transition: transform 0.3s ease;
+        }
+
+        .adult-photo-section img:hover {
+            transform: scale(1.02);
+        }
+
+        .content-padding {
+            padding: 0 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden; /* Чтобы скруглить углы у самой карты */
+            border: 2px solid var(--bg-light);
+            line-height: 0; /* Убирает лишний отступ снизу */
+        }
+
+        .map-container iframe {
+            filter: grayscale(0.2) contrast(0.9); /* Слегка приглушаем цвета под пастельный стиль */
+            transition: 0.3s;
+        }
+
+        .map-container iframe:hover {
+            filter: grayscale(0); /* Карта становится ярче при наведении */
+        }
+
+        .footer-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+
+        .footer-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-family: 'Caveat', cursive; /* Используем тот же шрифт, что и в именах */
+            font-size: 1.8rem;
+            color: var(--text);
+            margin-top: -10px; /* Чтобы текст был ближе к "рваному" краю картинки */
+            line-height: 1.3;
+        }
+
+        .form-container {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--bg-light);
+            background: #fff;
+        }
+
+        /* Скроем полосу прокрутки внутри фрейма для красоты */
+        .form-container iframe {
+            border: none;
+            display: block;
+        }
+
+        .countdown-container {
+            background: var(--bg-light);
+            padding: 30px 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .timer-item {
+            background: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            min-width: 60px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .timer-item span {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .timer-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .info-card {
+            border: 2px solid var(--bg-light);
+            margin: 20px;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .color-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-link {
+            display: block;
+            text-decoration: none;
+            background: var(--primary);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            margin: 15px auto;
+            width: 85%;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-link:active {
+            transform: scale(0.95);
+        }
+
+        .btn-link b {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .btn-link span {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            line-height: 1.2;
+            display: block;
+        }
+
+        .btn-music {
+            background: var(--secondary);
+        }
+
+        .calendar-container {
+            background-color: #fefae0;
+            padding: 40px 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            max-width: 320px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .calendar-day {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .weekday {
+            font-weight: 700;
+            color: #bc6c25;
+        }
+
+        .marked {
+            border: 2px solid #bc6c25;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            font-weight: bold;
+        }
+        <style>
+         .program-container {
+             max-width: 500px;
+             margin: 0 auto;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+        .program-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 2px solid #d1d1d1;
+            position: relative;
+        }
+        .program-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+        .time {
+            font-weight: bold;
+            font-size: 1.1em;
+            min-width: 60px;
+            color: #555;
+        }
+        .details {
+            margin-left: 20px;
+        }
+        .details h4 {
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .address-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9em;
+            border-bottom: 1px dashed #ccc;
+            transition: color 0.3s;
+        }
+        .address-link:hover {
+            color: #000;
+            border-bottom: 1px solid #000;
+        }
+
+
+    @media (max-width: 480px) {
+            .photo-kids img {
+                height: 180px;
+            }
+
+            .timer-item {
+                min-width: 50px;
+                padding: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -74,7 +377,7 @@
 <div class="container">
     <header>
         <div class="names-row">
-            Артем + Лиза = 
+            Тёма + Лиза =
             <video class="rings-video" autoplay loop muted playsinline poster="ring.jpg">
                 <source src="rings.MP4" type="video/mp4">
             </video>
@@ -88,7 +391,7 @@
 
     <div class="content-padding">
         <h2 class="section-title">Узнали этих карапузов?</h2>
-        <p>Невероятно, как быстро летит время... Кажется, еще вчера мы строили замки в песочнице, а сегодня пришла пора создавать нашу собственную семью!</p>
+        <p>Кажется, еще вчера мы строили замки в песочнице, а сегодня пришла пора создавать нашу собственную семью!</p>
     </div>
 
     <div class="adult-photo-section">
@@ -99,28 +402,146 @@
     <div class="countdown-container">
         <div class="section-title" style="font-size: 1.8rem;">До торжества осталось:</div>
         <div id="timer">
-            <div class="timer-item"><span id="days">00</span><div class="timer-label">дней</div></div>
-            <div class="timer-item"><span id="hours">00</span><div class="timer-label">часов</div></div>
-            <div class="timer-item"><span id="minutes">00</span><div class="timer-label">мин</div></div>
-            <div class="timer-item"><span id="seconds">00</span><div class="timer-label">сек</div></div>
+            <div class="timer-item"><span id="days">00</span>
+                <div class="timer-label">дней</div>
+            </div>
+            <div class="timer-item"><span id="hours">00</span>
+                <div class="timer-label">часов</div>
+            </div>
+            <div class="timer-item"><span id="minutes">00</span>
+                <div class="timer-label">мин</div>
+            </div>
+            <div class="timer-item"><span id="seconds">00</span>
+                <div class="timer-label">сек</div>
+            </div>
         </div>
     </div>
 
     <div class="calendar-container">
         <div class="section-title">Июнь 2026</div>
         <div class="calendar">
-            <div class="calendar-day weekday">Пн</div><div class="calendar-day weekday">Вт</div><div class="calendar-day weekday">Ср</div><div class="calendar-day weekday">Чт</div><div class="calendar-day weekday">Пт</div><div class="calendar-day weekday">Сб</div><div class="calendar-day weekday">Вс</div>
-            <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div>
-            <div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div><div class="calendar-day">12</div><div class="calendar-day"><div class="marked">13</div></div><div class="calendar-day">14</div>
-            <div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div><div class="calendar-day">18</div><div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div>
-            <div class="calendar-day">22</div><div class="calendar-day">23</div><div class="calendar-day">24</div><div class="calendar-day">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
-            <div class="calendar-day">29</div><div class="calendar-day">30</div>
+            <div class="calendar-day weekday">Пн</div>
+            <div class="calendar-day weekday">Вт</div>
+            <div class="calendar-day weekday">Ср</div>
+            <div class="calendar-day weekday">Чт</div>
+            <div class="calendar-day weekday">Пт</div>
+            <div class="calendar-day weekday">Сб</div>
+            <div class="calendar-day weekday">Вс</div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <div class="calendar-day">3</div>
+            <div class="calendar-day">4</div>
+            <div class="calendar-day">5</div>
+            <div class="calendar-day">6</div>
+            <div class="calendar-day">7</div>
+            <div class="calendar-day">8</div>
+            <div class="calendar-day">9</div>
+            <div class="calendar-day">10</div>
+            <div class="calendar-day">11</div>
+            <div class="calendar-day">12</div>
+            <div class="calendar-day">
+                <div class="marked">13</div>
+            </div>
+            <div class="calendar-day">14</div>
+            <div class="calendar-day">15</div>
+            <div class="calendar-day">16</div>
+            <div class="calendar-day">17</div>
+            <div class="calendar-day">18</div>
+            <div class="calendar-day">19</div>
+            <div class="calendar-day">20</div>
+            <div class="calendar-day">21</div>
+            <div class="calendar-day">22</div>
+            <div class="calendar-day">23</div>
+            <div class="calendar-day">24</div>
+            <div class="calendar-day">25</div>
+            <div class="calendar-day">26</div>
+            <div class="calendar-day">27</div>
+            <div class="calendar-day">28</div>
+            <div class="calendar-day">29</div>
+            <div class="calendar-day">30</div>
         </div>
     </div>
 
+    <div class="content-padding">
+        <h2 class="section-title"></h2>
+        <p><br><b>Нам очень хочется, чтобы в этот важный для нас день, именно вы были с нами!</b></p>
+    </div>
+
+    <div class="adult-photo-section">
+        <img src="we_adult.jpg" alt="Мы вас ждем">
+    </div>
+
+    <div class="info-card">
+        <h3 class="section-title">Программа дня</h3>
+
+        <div class="program-container">
+            <!-- Выкуп -->
+            <div class="program-item">
+                <div class="time">09:00</div>
+                <div class="details">
+                    <h4>Сбор гостей и выкуп</h4>
+                    <a href="https://yandex.ru/maps/?rtext=~54.752703,55.991947&rtt=auto&mode=routes" target="_blank" class="address-link">
+                        📍 ул. Братьев Кадомцевых, д. 5/1 (построить маршрут)
+                    </a>
+                </div>
+            </div>
+
+            <!-- ЗАГС -->
+            <div class="program-item">
+                <div class="time">10:40</div>
+                <div class="details">
+                    <h4>Торжественная регистрация</h4>
+                    <a href="https://yandex.ru/maps/?rtext=~54.758651%2C55.985742&rtt=auto&mode=routes" target="_blank" class="address-link">
+                        💍 ЗАГС Октябрьского района (построить маршрут)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Банкет -->
+            <div class="program-item">
+                <div class="time">14:00</div>
+                <div class="details">
+                    <h4>Свадебный банкет</h4>
+                    <a href="https://yandex.ru/maps/?rtext=~54.601605,55.946591&rtt=auto&mode=routes" target="_blank" class="address-link">
+                        🥂 пос. Чесноковка, ул. Охотный ряд 42
+                    </a>
+                </div>
+            </div>
+        </div>
+
+<!--    <div class="info-card">-->
+<!--        <h3 class="section-title">Место проведения</h3>-->
+<!--        <p>Ждем вас в отделе ЗАГС по адресу:<br><b>г. Уфа, ул. Рихарда Зорге, д. 60</b></p>-->
+
+<!--        <div class="map-container">-->
+<!--            &lt;!&ndash; Карта с правильными параметрами &ndash;&gt;-->
+<!--            <iframe-->
+<!--                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4604.424970487041!2d55.985742193579085!3d54.7586507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d939f03f95aeff%3A0xa7e1c51500a5af0b!2z0J7RgtC00LXQuyDQl9CQ0JPQoSDQntC60YLRj9Cx0YDRjNGB0LrQvtCz0L4g0YDQsNC50L7QvdCwINCzLiDQo9GE0Ys!5e0!3m2!1sru!2sru!4v1771315815138!5m2!1sru!2sru"-->
+<!--                    width="100%"-->
+<!--                    height="300"-->
+<!--                    style="border:0;"-->
+<!--                    allowfullscreen=""-->
+<!--                    loading="lazy"-->
+<!--                    referrerpolicy="no-referrer-when-downgrade">-->
+<!--            </iframe>-->
+<!--        </div>-->
+
+
+<!--        <a href="https://yandex.ru/maps/?rtext=~54.758651%2C55.985742&rtt=auto&mode=routes"-->
+<!--           target="_blank"-->
+<!--           class="btn-link"-->
+<!--           style="background: #c2a878; color: #000; border: none;">-->
+<!--            <b>Яндекс Навигатор</b>-->
+<!--            <span>Маршрут в ЗАГС (Зорге, 60)</span>-->
+<!--        </a>-->
+<!--    </div>-->
+
+
     <div class="info-card">
         <h3 class="section-title">Дресс-код</h3>
-        <p>Для ЗАГСа и первой части праздника мы выбрали <b>летнюю гамму в пастельных тонах</b>. Будем рады видеть вас в нежных образах!</p>
+        <p>Для ЗАГСа и первой части праздника мы выбрали <b>летнюю гамму в пастельных тонах</b>. Будем рады видеть вас в
+            нежных образах, но если вы хотите надеть что-то другое, мы не против.</p>
+        <p style="font-style: italic; margin-top: 15px;"><b>СИЯЙТЕ!</b></p>
         <div class="color-dots">
             <div class="dot" style="background: #f3e5f5;"></div>
             <div class="dot" style="background: #e1f5fe;"></div>
@@ -128,33 +549,65 @@
             <div class="dot" style="background: #fff9c4;"></div>
             <div class="dot" style="background: #ffe0b2;"></div>
         </div>
+        <h3 class="section-title">Главное</h3>
+        <p>Так как наш праздник пройдет на природе, пожалуйста продумайте образ. Не забудьте захватить теплые вещи для
+            вечера и удобную обувь (можно кроссовки)</p>
     </div>
 
-    <div class="content-padding">
+    <div class="info-card">
         <h3 class="section-title">Про цветы</h3>
-        <p>Пожалуйста, не дарите нам пышные букеты. Если хотите — подарите просто <b>по одному цветку</b>, это будет очень трогательно.</p>
+        <p>Пожалуйста, не дарите нам пышные букеты. Если хотите — подарите просто <b>по одному цветку</b>, это будет
+            очень трогательно.</p>
     </div>
 
-    <div class="links-section">
-        <a href="https://t.me" target="_blank" class="btn-link">
-            <b>ХОЧУ НАВЕСТИ ШУМИХУ!</b>
-            <span>Если вы хотите не только быть гостем, но и поиздеваться над всеми — заходите сюда!</span>
-        </a>
 
-        <a href="https://t.me" target="_blank" class="btn-link btn-music">
-            <b>МУЗЫКАЛЬНЫЙ ПЛЕЙЛИСТ</b>
-            <span>Кидайте сюда треки, под которые вы точно пойдете танцевать!</span>
-        </a>
+    <!--<div class="content-padding">-->
+    <!--        <h3 class="section-title">ИНТЕРАКТИВ</h3>-->
+    <!--        <p>Мы решили отказаться от классического проведения свадеб и создать мах домашнюю и уютную обстановку и надеюсь, вы нам в этом поможите</p>-->
+    <!--    </div>-->
+
+    <!--    <div class="links-section">-->
+    <!--        <a href="https://t.me/+ndivYPjWdfsxMWM6" target="_blank" class="btn-link">-->
+    <!--            <b>ХОЧУ НАВЕСТИ ШУМУ!</b>-->
+    <!--            <span>Если вы хотите не только быть гостем, но и поиздеваться над всеми — заходите сюда!</span>-->
+    <!--        </a>-->
+
+    <!--        <a href="https://t.me/+ie7mFU4DlIYwMWMy" target="_blank" class="btn-link btn-music">-->
+    <!--            <b>МУЗЫКАЛЬНЫЙ ПЛЕЙЛИСТ</b>-->
+    <!--            <span>Кидайте сюда треки, под которые вы точно пойдете танцевать!</span>-->
+    <!--        </a>-->
+    <!--    </div>-->
+    <div class="info-card" id="rsvp">
+        <h3 class="section-title">Анкета гостя</h3>
+        <p>Пожалуйста, ответьте на несколько вопросов, чтобы мы могли сделать праздник комфортнее для вас.</p>
+
+        <div class="form-container">
+            <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfI3KqwkbtkCC4W1-gP2zW1W9Hhop8WQIuhIPzy6tAB99l-AA/viewform?usp=publish-editor"
+                    width="100%"
+                    height="800"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                Загрузка...
+            </iframe>
+        </div>
+    </div>
+    <div class="footer-section">
+        <!-- Сама картинка -->
+        <img src="footer.jpg" alt="До встречи" class="footer-img">
+
+        <!-- Текст под картинкой -->
+        <div class="footer-text">
+            До встречи! Будем рады всех вас видеть
+        </div>
     </div>
 
-    <div class="content-padding">
-        <h3 class="section-title">Где будет праздник</h3>
-        <p>Ресторан <b>"Мечта"</b><br>ул. Счастья, д. 1</p>
-    </div>
 </div>
 
 <script>
     const weddingDate = new Date("June 13, 2026 16:00:00").getTime();
+
     function updateTimer() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
@@ -167,10 +620,10 @@
         document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
     }
+
     setInterval(updateTimer, 1000);
     updateTimer();
 </script>
 
 </body>
 </html>
-
